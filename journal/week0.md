@@ -37,6 +37,7 @@ AWS Access Key ID [None]: [AWS_ACCESS_KEY]
 AWS Secret Access Key [None]: [AWS_SECRET_ACCESS_KEY]
 Default region name [None]: [AWS_REGION]
 Default output format [None]: json
+```
 In order to make them persistent we have two options: 
 ```
 $ export gp env AWS_ACCESS_KEY_ID="[AWS_ACCESS_KEY]"
