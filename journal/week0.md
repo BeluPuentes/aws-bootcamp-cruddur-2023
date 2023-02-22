@@ -73,7 +73,7 @@ tasks:
 Then we need to make the environment variables persistent so we launch the followings commands:
 ```
 $ gp env AWS_ACCESS_KEY_ID="[AWS_ACCESS_KEY]"
-$ gp env AWS_SECRET_ACCESS_KEY_ID="[AWS_SECRET_ACCESS_KEY]"
+$ gp env AWS_SECRET_ACCESS_KEY="[AWS_SECRET_ACCESS_KEY]"
 $ gp env AWS_DEFAULT_REGION="[AWS_REGION]"
 ```
 Now if you close the workspace and re-enter you can continue working with yours environmet variables set up. 
