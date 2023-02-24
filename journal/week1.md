@@ -32,6 +32,7 @@ docker ps
 docker images
 ```
 
+
 ## AWS CloudTrail
 ## AWS ..
 
@@ -149,6 +150,11 @@ RUN apt-get install -y curl
 >   start_period: 20s
 >   timeout: 10s
 
+The result is 
+![image](https://user-images.githubusercontent.com/93335543/221272281-735bb5e6-e31c-44d7-b186-32cf12e6e083.png)
+In case something goes wrong it will appear **unhealthy**
+
 ### 5. Research best practices of Dockerfiles and attempt to implement it in your Dockerfile
 ### 6. Learn how to install Docker on your localmachine and get the same containers running outside of Gitpod / Codespaces
+
 ### 7. Launch an EC2 instance that has docker installed, and pull a container to demonstrate you can run your own docker processes. 
