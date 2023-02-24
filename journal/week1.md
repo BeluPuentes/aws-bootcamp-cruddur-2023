@@ -32,10 +32,6 @@ docker ps
 docker images
 ```
 
-
-## AWS CloudTrail
-## AWS ..
-
 ## Add Notifications page
 Here is the link to the commit: https://github.com/BeluPuentes/aws-bootcamp-cruddur-2023/commit/2f8f5c8b7ce89bca17802c404fe692cb7703ab4a
 
@@ -155,6 +151,38 @@ The result is
 In case something goes wrong it will appear **unhealthy**
 
 ### 5. Research best practices of Dockerfiles and attempt to implement it in your Dockerfile
+
 ### 6. Learn how to install Docker on your localmachine and get the same containers running outside of Gitpod / Codespaces
+I open my VSCode
+In the terminal I launch the following command
+```
+git clone https://github.com/BeluPuentes/aws-bootcamp-cruddur-2023.git
+```
+After that it started downloading the repository
+![image](https://user-images.githubusercontent.com/93335543/221278104-90a92e2a-bcd7-418e-acfa-a9b309ac1719.png)
+When it finished I just write
+```
+docker-compose up
+```
+With that my containers were up 
+![image](https://user-images.githubusercontent.com/93335543/221303886-347eaca6-8b56-4d31-a473-34fc2ea69887.png)
+
 
 ### 7. Launch an EC2 instance that has docker installed, and pull a container to demonstrate you can run your own docker processes. 
+We need to go to AWS Console, the to the part of EC2 and launch an instance 
+![image](https://user-images.githubusercontent.com/93335543/221304930-679a5a83-7c19-41c5-8133-ebd1a9481db7.png)
+A file `.pem` is downloaded, with Puttygen, we generate a new file `.ppk`
+We need that, ther user name of the instance and the public DNS in order to connect 
+![image](https://user-images.githubusercontent.com/93335543/221321044-9e82fd0a-f13f-4fb5-96bd-ca3f09a6f1c9.png)
+We use the followings commands to install Docker 
+```
+sudo yum update -y
+sudo amazon-linux-extras install docker -y
+sudo service docker start
+sudo usermod -a -G docker ec2-user
+```
+Then we launch a container with thw following command
+```
+sudo docker pull nginx
+```
+![image](https://user-images.githubusercontent.com/93335543/221321336-3e2e584d-24bb-4315-8b9f-3af444cbe107.png)
