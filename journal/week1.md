@@ -151,6 +151,8 @@ The result is
 In case something goes wrong it will appear **unhealthy**
 
 ### 5. Research best practices of Dockerfiles and attempt to implement it in your Dockerfile
+This are ways to optimize our Dockerfile 
+Link to documentation: https://docs.docker.com/develop/develop-images/dockerfile_best-practices/  
 
 ### 6. Learn how to install Docker on your localmachine and get the same containers running outside of Gitpod / Codespaces
 I open my VSCode
