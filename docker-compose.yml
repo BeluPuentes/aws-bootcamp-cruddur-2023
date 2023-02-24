@@ -9,6 +9,17 @@ services:
       - "4567:4567"
     volumes:
       - ./backend-flask:/backend-flask
+# Healthchek:
+    healthcheck:
+      test: curl --fail https://4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}  
+      interval: 60s
+      timeout: 3s
+      start_period: 5s
+      retries: 3
+      
+      
+      
+
   frontend-react-js:
     environment:
       REACT_APP_BACKEND_URL: "https://4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
@@ -50,3 +61,4 @@ networks:
 volumes:
   db:
     driver: local
+

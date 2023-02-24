@@ -28,6 +28,10 @@ ENV PATH=/root/.local/bin:$PATH
 COPY flask.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/flask.sh
 
+RUN apt-get update 
+RUN apt-get install -y gcc
+RUN apt-get install -y curl
+
 # Set Environment Variables (Env Vars)
 # inside Container and will remin set when the container is running
 ENV FLASK_ENV=development
