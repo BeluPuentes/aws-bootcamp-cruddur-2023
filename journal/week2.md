@@ -43,6 +43,35 @@ HeatMap
 ![image](https://user-images.githubusercontent.com/93335543/221428922-b0e2ceb3-eac8-4daf-b4ac-acff999dd321.png)
 
 
+## CloudTrail and CloudWatch
+![image](https://user-images.githubusercontent.com/93335543/221572880-72d64eda-bbc9-4f98-8000-672afde09b61.png)
+![image](https://user-images.githubusercontent.com/93335543/221573146-795b00bd-2f26-4733-9708-aad505746b03.png)
+
+## AWS X-Ray
+We add the following command in the file requirements.txt in the backend 
+```
+aws-xray-sdk
+```
+And we install the python dependencies
+```
+pip install -r requirements.txt
+```
+![image](https://user-images.githubusercontent.com/93335543/221651389-2d899e8f-855b-4b8e-bd9c-46b3a63f536b.png)
+
+Sampling rule
+![image](https://user-images.githubusercontent.com/93335543/221653764-488c437b-dd2c-4250-bd2d-8cf6e5e455ba.png)
+
+AWS X-Ray Logs
+![image](https://user-images.githubusercontent.com/93335543/221662694-e0916dcd-b86c-437d-b9bd-f06420726882.png)
+
+![image](https://user-images.githubusercontent.com/93335543/221666722-17ab8e3d-a6ef-4254-83d0-8caa71a7507f.png)
+![image](https://user-images.githubusercontent.com/93335543/221667696-eaf566d3-27d1-466e-969d-9209e4b21401.png)
+
+Add aws x-ray in User page (Segments)
+![image](https://user-images.githubusercontent.com/93335543/221675961-5c360c63-b7ed-452d-9810-c3f2de7e01aa.png)
+NO FUNCIONA EN AWS DA ERROR 
+
+
 CHALLENGE 
 BUILD MY OWN QUERY 
 
