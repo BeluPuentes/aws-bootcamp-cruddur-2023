@@ -71,6 +71,14 @@ Add aws x-ray in User page (Segments)
 ![image](https://user-images.githubusercontent.com/93335543/221675961-5c360c63-b7ed-452d-9810-c3f2de7e01aa.png)
 NO FUNCIONA EN AWS DA ERROR 
 
+## CloudWatch Logs
+![image](https://user-images.githubusercontent.com/93335543/221861484-383a4ea1-ae5d-409e-bcaa-bbd4b8bf5f2f.png)
+
+## Rollbar
+We modificated de docker-compese file, the app.py file and the home_activities page 
+Link: 
+![image](https://user-images.githubusercontent.com/93335543/221955728-03751ec1-8c9a-4bde-83e9-e007a78931f5.png)
+
 
 CHALLENGE 
 BUILD MY OWN QUERY 
