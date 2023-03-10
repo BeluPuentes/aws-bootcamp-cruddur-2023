@@ -66,6 +66,7 @@ React.useEffect(()=>{
 ```
 
 We added the following in the ProfilInfo.js
+```
 //Add this to the import block
 import { Auth } from 'aws-amplify';
 
@@ -77,8 +78,98 @@ import { Auth } from 'aws-amplify';
     } catch (error) {
         console.log('error signing out: ', error);
     }
+ ```
  
- ![image](https://user-images.githubusercontent.com/93335543/224398584-ddd10354-0b4c-4d43-9ead-ed22c081f40d.png)
+ ### SignIn Page
+ And our signInPage.js 
+ ```
+ import { Auth } from 'aws-amplify';
 
-  
-  
+const onsubmit = async (event) => {
+  setErrors('')
+  event.preventDefault();
+  Auth.signIn(email, password)
+  .then(user => {
+    localStorage.setItem("access_token", user.signInUserSession.accessToken.jwtToken)
+    window.location.href = "/"
+  })
+  .catch(error => {
+    if (error.code == 'UserNotConfirmedException') {
+      window.location.href = "/confirm"
+    }
+    setErrors(error.message)
+  });
+  return false
+}
+```
+If we enter with a not authentify user we have this error
+ ![image](https://user-images.githubusercontent.com/93335543/224398584-ddd10354-0b4c-4d43-9ead-ed22c081f40d.png)
+But if we enter with an authentify user
+![image](https://user-images.githubusercontent.com/93335543/224405584-75daf044-98b5-42bd-8cc6-6e3ea8eed1d9.png)
+
+ ### SignUp Page
+ ```
+ import { Auth } from 'aws-amplify';
+ 
+ const onsubmit = async (event) => {
+  event.preventDefault();
+  setCognitoErrors('')
+  try {
+      const { user } = await Auth.signUp({
+        username: email,
+        password: password,
+        attributes: {
+            name: name,
+            email: email,
+            preferred_username: username,
+        },
+        autoSignIn: { // optional - enables auto sign in after user is confirmed
+            enabled: true,
+        }
+      });
+      console.log(user);
+      window.location.href = `/confirm?email=${email}`
+  } catch (error) {
+      console.log(error);
+      setCognitoErrors(error.message)
+  }
+  return false
+}
+```
+
+### Confirmation Page
+ ```
+ import { Auth } from 'aws-amplify';
+   const resend_code = async (event) => {
+    setErrors('')
+    try {
+      await Auth.resendSignUp(email);
+      console.log('code resent successfully');
+      setCodeSent(true)
+    } catch (err) {
+      // does not return a code
+      // does cognito always return english
+      // for this to be an okay match?
+      console.log(err)
+      if (err.message == 'Username cannot be empty'){
+        setErrors("You need to provide an email in order to send Resend Activiation Code")   
+      } else if (err.message == "Username/client id combination not found."){
+        setErrors("Email is invalid or cannot be found.")   
+      }
+    }
+  }
+
+  const onsubmit = async (event) => {
+    event.preventDefault();
+    setErrors('')
+    try {
+      await Auth.confirmSignUp(email, code);
+      window.location.href = "/"
+    } catch (error) {
+      setErrors(error.message)
+    }
+    return false
+  }
+ ```
+  ![image](https://user-images.githubusercontent.com/93335543/224411419-10b176d0-bba4-400c-a070-fa22d0e66729.png)
+
